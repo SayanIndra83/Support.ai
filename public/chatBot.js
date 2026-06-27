@@ -7,7 +7,7 @@
         return;
     }
 
-    const api_url = `http://localhost:3000/api/chat/${ownerId}`;
+    const api_url = `https://support-ai-pi-two.vercel.app/api/chat/${ownerId}`;
 
     const style = document.createElement("style");
     style.innerHTML = `
