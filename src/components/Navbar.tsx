@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'motion/react';
-import { LayoutDashboard, LogOut } from 'lucide-react';
+import { LayoutDashboard, Loader2, LogOut } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 
@@ -10,6 +10,7 @@ export default function Navbar({email} : {email : string}) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [open, setOpen] = useState(false)
   const router = useRouter()
+  const [loading, setLoading] = useState(false)
 
   useMotionValueEvent(scrollY, "change", (latestValue) => {
     if (latestValue > 50) {
@@ -21,6 +22,7 @@ export default function Navbar({email} : {email : string}) {
 
 
   const handleLogin = () => {
+    setLoading(true)
     window.location.href = `/api/auth/login`
   }
 
@@ -41,12 +43,13 @@ export default function Navbar({email} : {email : string}) {
   }, [])
 
   const handleLogout = async () => {
+    setLoading(true)
     try {
         const response = await axios.get(`/api/auth/logout`);
         router.push('/')
     } catch (error) {
         console.log("logout failed")
-    }
+    }finally{setLoading(false)}
   }
   return (
     <motion.nav
@@ -122,16 +125,32 @@ export default function Navbar({email} : {email : string}) {
             className='flex items-center justify-start gap-3 w-full rounded-2xl hover:bg-zinc-100 text-left text-sm py-3 pl-3 pr-4 cursor-pointer hover:translate-x-1 transition-all duration-300 font-semibold'><LayoutDashboard size={18} className='text-gray-900'/> DashBoard</button>
             <button className='flex items-center  gap-3 w-full justify-start rounded-2xl hover:bg-red-200 text-red-600 text-left text-sm py-3 pl-3 pr-4  cursor-pointer hover:translate-x-1 transition-all duration-300 font-semibold'
             onClick={handleLogout}
-            ><LogOut size={18} className='text-red-500'/>Logout</button>
+            disabled={loading}
+            >
+              {loading 
+              
+              ? (
+                <>
+                <Loader2 size={18} className='text-gray-500 font-bold animate-spin'/>Logging out...
+                </>
+              ) 
+              
+              : (
+                <>
+                <LogOut size={18} className='text-red-500'/>Logout
+                </>
+              )}
+            </button>
         </motion.div>
         )}
         </AnimatePresence>
             </div>
           ) : (
-          <button className="bg-black text-white px-5 py-2 rounded-full text-sm font-medium hover:scale-105 transition-transform duration-200 shadow-md cursor-pointer"
+          <button className="bg-black text-white px-5 py-2 rounded-full text-sm font-medium hover:scale-105 transition-transform duration-200 shadow-md cursor-pointer disabled:bg-gray-700"
           onClick={handleLogin}
+          disabled={loading}
           >
-            Login →
+            {loading ? (<Loader2 size={18} className='text-gray-300 animate-spin'/>) : ("Login →")}
           </button>)}
         </div>
 

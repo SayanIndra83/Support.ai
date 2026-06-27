@@ -6,6 +6,7 @@ import { motion } from "framer-motion"
 import { Bot, Zap, Shield, Clock } from "lucide-react"
 
 function HomeClient({email} : {email: string}) {
+    
     const router = useRouter()
     const handleLogin = () => {
         window.location.href = `/api/auth/login`

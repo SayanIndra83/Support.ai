@@ -57,16 +57,16 @@ export default function Navbar() {
         <div className="flex items-baseline cursor-pointer"
         onClick={(e) =>router.push('/')}
         >
-     <h2 className="font-bold text-xl md:text-2xl text-gray-900 tracking-normal">Support</h2>
+      <h2 className="font-bold text-xl md:text-2xl text-gray-900 tracking-normal">Support</h2>
       <span className="font-semibold text-base md:text-xl text-gray-500 ml-1">.ai</span>
 </div>
 
         <div className="flex items-center gap-6">
           <button className="bg-black text-white px-5 py-2 rounded-full text-sm font-medium hover:scale-105 transition-transform duration-200 shadow-md cursor-pointer"
-          onClick={() => router.push("/embed")}
+          onClick={() => router.push("/dashboard")}
           >
 
-            Embed ChatBot →
+            Back to Dashboard →
           </button>
         </div>
 
