@@ -81,7 +81,7 @@ function DashboardClient({ownerId} : {ownerId : string}) {
                         
                         <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-50 ring-1 ring-zinc-200/60 text-[13px] font-mono text-zinc-500 shadow-sm">
                            <Hash size={14} className="text-emerald-400"/>
-                           <span className="truncate max-w-[120px] text-pink-400">{ownerId.slice(14)}</span>
+                           <span className="truncate max-w-[120px] text-pink-400">{ownerId}</span>
                         </div>
                     </div>
 
