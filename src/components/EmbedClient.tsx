@@ -104,13 +104,13 @@ function EmbedClient({ ownerId }: { ownerId: string }) {
             transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
             className="relative w-full h-[600px] bg-white rounded-3xl ring-1 ring-zinc-200 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col"
           >
-            <div className="h-12 bg-zinc-50 border-b border-zinc-100 flex items-center justify-center relative">
-              <div className="absolute left-4 flex gap-1.5">
+            <div className="h-12 bg-zinc-50 border-b border-zinc-100 flex gap-2 items-center relative">
+              <div className="pl-2 flex gap-1.5">
                 <div className="w-3 h-3 rounded-full bg-[#FF5F56]"></div>
                 <div className="w-3 h-3 rounded-full bg-[#FFBD2E]"></div>
                 <div className="w-3 h-3 rounded-full bg-[#27C93F]"></div>
               </div>
-              <div className="bg-white ring-1 ring-zinc-200/60 rounded-md px-24 py-1 text-[11px] font-medium text-zinc-400">
+              <div className=" bg-white ring-1 ring-zinc-200/60 rounded-md px-24 py-1 text-[11px] font-medium text-zinc-400">
                 your-website.com
               </div>
             </div>
