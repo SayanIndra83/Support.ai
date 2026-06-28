@@ -129,7 +129,7 @@ function HomeClient({email} : {email: string}) {
                         <motion.div
                                     animate={{ y: [0, -8, 0] }}
                                     transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                                    className="absolute -bottom-6 -right-6 w-14 h-14 text-white bg-zinc-950 rounded-full flex items-center justify-center shadow-xl shadow-zinc-900/20 ring-4 z-50 ring-white border border-zinc-800"
+                                    className="absolute -bottom-6 right-2 md:-right-6 w-14 h-14 text-white bg-zinc-950 rounded-full flex items-center justify-center shadow-xl shadow-zinc-900/20 ring-4 z-50 ring-white border border-zinc-800"
                                 >
                                     <Bot size={22} className="text-pink-300" />
                                 </motion.div>

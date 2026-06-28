@@ -16,10 +16,10 @@ export default function RootLayout({
     <html
       lang="en"
     >
-      <body className="min-h-screen">
+
+      <body className="min-h-screen w-full">
       <Toaster position="top-center" />
       {children}
-      
       </body>
     </html>
   );
